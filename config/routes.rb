@@ -5,5 +5,8 @@ Ctaa::Application.routes.draw do
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure", to: "sessions#failure"
   match "/signout" => "sessions#destroy", :as => :signout
+
+  # Timeline
+  match "/timeline" => "timelines#index", :as => "timeline", :via => :get
     
 end

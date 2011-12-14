@@ -27,3 +27,15 @@ function setupTwipsy() {
 	   	placement: 'left'
 	});	
 }
+
+function getTimeline() {
+		$.ajax({
+		   	url: "/timeline",
+		   	type: "GET",
+		   	dataType : "json",
+		   	data: null,
+		   	success: function(resp) {
+		   		console.log(resp);
+		   	}
+		});	
+}

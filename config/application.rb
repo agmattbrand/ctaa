@@ -44,5 +44,9 @@ module Ctaa
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Dipity keys
+    config.dipity.api_key = "05f45cf34d21f1e081d050356a89a93c"
+    config.dipity.secret = "bbe154a1586ff892f7de2c16376b543f"
   end
 end

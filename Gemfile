@@ -27,6 +27,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
+gem 'rest-client' # For dipity
 
 # Use unicorn as the web server
 # gem 'unicorn'
