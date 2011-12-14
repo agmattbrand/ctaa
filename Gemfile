@@ -9,7 +9,8 @@ group :production do
   gem 'pg'
 end
 group :development do
-  gem 'mysql2', '0.2.7'
+  gem 'mysql2', '0.3.7'
+  gem 'rails-dev-tweaks', '~> 0.5.1'
 end
 
 # Gems used only for assets and not required
@@ -20,9 +21,12 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'heroku'
-
 gem 'jquery-rails'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-identity'
 
 # Use unicorn as the web server
 # gem 'unicorn'

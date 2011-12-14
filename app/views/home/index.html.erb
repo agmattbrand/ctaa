@@ -1,3 +1,41 @@
 <div style="text-align:center;margin-top:100px;">
-	<h1>ctaa.  soon.</h1>
+	<% if current_user %>
+		<h1>ctaa.  coming soon.</h1>
+		Welcome <%= current_user.name %>
+		<p/>
+		<%= link_to "Sign Out", signout_path %>
+	<% else %>
+		<h1>ctaa</h1>
+		<b>Sign In Using:</b>
+		<div style="text-align:center;margin-top:10px;margin-bottom:10px;">
+			<%= link_to image_tag("facebook.png"), "/auth/facebook", :title => "Facebook" %>
+			<%= link_to image_tag("twitter.png"), "/auth/twitter", :title => "Twitter" %>
+		</div>
+		<strong>Don't use these services?</strong>
+		<%= link_to "Create an account", "/auth/identity/register" %> or
+		<%= link_to "login", "javascript:launchLogin()" %>.
+		
+		<div style="display:none;">
+			<script>
+				function launchLogin() {
+					$("#login-box-launcher").click();
+				}
+			</script>
+			<a href="#login-box" style="display:none;" class="dialog fancybox.inline" id="login-box-launcher">Login</a>
+			<div id="login-box">
+				<%= form_tag "/auth/identity/callback" do %>
+					<div class="field">
+						<%= label_tag :auth_key, "Email" %><br>
+						<%= text_field_tag :auth_key %>
+					</div>
+					<div class="field">
+						<%= label_tag :password %><br>
+						<%= password_field_tag :password %>
+					</div>
+					<div class="actions"><%= submit_tag "Login" %></div>
+				<% end %>
+			</div>
+		</div>
+		
+	<% end %>
 </div>
