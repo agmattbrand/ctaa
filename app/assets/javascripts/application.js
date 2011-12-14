@@ -6,5 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require "jquery.fancybox.pack"
+//= require "bootstrap-dropdown"
+//= require "bootstrap-alerts"
+//= require "bootstrap-modal"
+//= require "bootstrap-twipsy"
+//= require "bootstrap-popover"
 //= require "ctaa"

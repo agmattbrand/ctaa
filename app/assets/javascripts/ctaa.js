@@ -1,24 +1,29 @@
 $(document).ready(function() {
-	setupFancyBoxes();
+	setupComingSoons();
+	setupTwipsy();
 });
 
-function setupFancyBoxes() {
-	$('a.dialog').fancybox({
-		autoSize : true,
-		closeBtn : true,
-		closeClick : false,
-		fixed : true,
-		showNavArrows : false,
-		keys: {
-			next: null, // override
-			prev: null, // override
-			close: [27] // escape key
-		},
-		afterShow: function() {
-			// Fancy box any links inside
-			focusFirst();
-			setupFancyBoxes();
-			$("form").validate();
-		}
+function setupComingSoons() {
+	$("a.coming-soon").each(function() {
+		$(this).attr("data-content","Thanks for your patience");
+		$(this).attr("data-original-title","Coming soon");		
+		$(this).attr("rel","popover");
 	});
-}		
+
+	$(".coming-soon").popover({
+		placement: 'below'
+	});
+}
+
+function setupTwipsy() {
+	$("a.twipsy-link").each(function() {
+		var obj = $(this);
+		var str = "Coming soon" || obj.attr("title");
+		$(this).attr("title",str);
+		$(this).attr("rel","twipsy");
+	});
+
+	$("a.twipsy-link").twipsy({
+	   	placement: 'left'
+	});	
+}

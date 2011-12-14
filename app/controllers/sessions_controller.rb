@@ -5,16 +5,16 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_url, notice: "Signed in!"
+    redirect_to root_url, notice: "You are now signed in!"
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Signed out!"
+    redirect_to root_url, notice: "You are signed out!"
   end
 
   def failure
-    redirect_to root_url, alert: "Authentication failed, please try again."
+    redirect_to root_url, alert: "Sorry, incorrect email address or password, please try again."
   end
   
 end
